@@ -101,3 +101,9 @@ export const InfosCart = styled.div`
   weight: 700;
   font-size: 14px;
 `
+export const CartStage = styled.div`
+  display: block;
+  &.is-checkout {
+    display: none;
+  }
+`
