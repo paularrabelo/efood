@@ -36,7 +36,6 @@ const Cart = () => {
   const remItem = (id: number) => {
     dispatch(removeItem(id))
   }
-  console.log('isCart: ' + isCart)
   return (
     <CartContainer className={isOpen ? 'is-open' : ''}>
       <Overlay onClick={openCart} />
@@ -62,7 +61,7 @@ const Cart = () => {
             Continuar com a entrega
           </AddCartButton>
         </CartStage>
-        <Checkout checkoutStart={isAddress} />
+        <Checkout checkoutStart={isAddress} priceTotal={getTotalPrice()} />
       </Sidebar>
     </CartContainer>
   )

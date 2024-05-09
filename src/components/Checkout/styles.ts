@@ -48,6 +48,14 @@ export const Field = styled.div`
 `
 
 export const PaymentContainer = styled.div`
+  p {
+    font-size: 16px;
+    font-weight: 700;
+  }
+  label {
+    font-weight: 700;
+    font-size: 14px;
+  }
   color: ${cores.rosa};
   display: none;
   &.show {
@@ -55,6 +63,19 @@ export const PaymentContainer = styled.div`
   }
   .buttomContainer {
     margin-top: 24px;
+    ${AddCartButton} {
+      margin-bottom: 8px;
+    }
+  }
+  .fieldContainer {
+    display: flex;
+    column-gap: 34px;
+    #cardNumber {
+      width: 228px;
+    }
+    #mesVencimento {
+      width: 155px;
+    }
   }
 `
 
@@ -66,5 +87,17 @@ export const ConfirmedContainer = styled.div`
   }
   .buttomContainer {
     margin-top: 24px;
+  }
+  p {
+    font-size: 14px;
+    font-weight: 400;
+
+    line-height: 22px;
+  }
+  h2 {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18.75px;
+    margin-bottom: 8px;
   }
 `
