@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { AddCartButton } from '../Cart/style'
+import { AddCartButton, SubmitCartButton } from '../Cart/style'
 import { breakpoints, cores } from '../../styles'
 
 export const DeliverContainer = styled.div`
@@ -63,7 +63,7 @@ export const PaymentContainer = styled.div`
   }
   .buttomContainer {
     margin-top: 24px;
-    ${AddCartButton} {
+    ${SubmitCartButton} {
       margin-bottom: 8px;
     }
   }

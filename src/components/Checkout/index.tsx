@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { AddCartButton } from '../Cart/style'
+import { AddCartButton, SubmitCartButton } from '../Cart/style'
 import {
   DeliverContainer,
   Field,
@@ -301,9 +301,9 @@ const Checkout = ({ checkoutStart = false, priceTotal = 0 }: Props) => {
           </Field>
         </div>
         <div className="buttomContainer">
-          <AddCartButton type="submit" onClick={activeConfirmed}>
+          <SubmitCartButton type="submit" onClick={activeConfirmed}>
             Finalizar pagamento
-          </AddCartButton>
+          </SubmitCartButton>
           <AddCartButton onClick={backAdress}>
             Voltar para a edição do endereço
           </AddCartButton>
