@@ -25,7 +25,11 @@ const Cart = () => {
     dispatch(close())
   }
   const activeCheckout = () => {
-    dispatch(startCheckout())
+    if (getTotalPrice() > 0) {
+      dispatch(startCheckout())
+    } else {
+      alert('Não há itens no carrinho')
+    }
   }
 
   const getTotalPrice = () => {

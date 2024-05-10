@@ -17,6 +17,7 @@ import { RootReducer } from '../../store'
 import { priceFormat } from '../FoodList'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
+import { usePurchaseMutation } from '../../services/api'
 
 type Props = {
   checkoutStart?: boolean
@@ -24,13 +25,20 @@ type Props = {
 }
 
 const Checkout = ({ checkoutStart = false, priceTotal = 0 }: Props) => {
+  const [purchase, { isSuccess, data }] = usePurchaseMutation()
+
   const { isPayment, isConfirmed } = useSelector(
     (state: RootReducer) => state.cart
   )
   const dispatch = useDispatch()
 
   const finish = () => {
-    dispatch(closeAndFinish())
+    if (dispatch(closeAndFinish())) {
+      console.log('Resposta: ' + data?.orderId)
+      console.log('Deu certo? ' + isSuccess)
+    } else {
+      console.log('Falhou tudo')
+    }
   }
   const backCart = () => {
     dispatch(backtoCart())
@@ -83,7 +91,35 @@ const Checkout = ({ checkoutStart = false, priceTotal = 0 }: Props) => {
       )
     }),
     onSubmit: (values) => {
-      console.log(values)
+      purchase({
+        delivery: {
+          receiver: values.remetente,
+          address: {
+            city: values.cidade,
+            description: values.endereco,
+            number: Number(values.numero),
+            zipCode: values.cep,
+            complement: values.complemento
+          }
+        },
+        payment: {
+          card: {
+            name: values.cardName,
+            number: values.cardNumber,
+            code: Number(values.cvv),
+            expires: {
+              month: Number(values.mesVencimento),
+              year: Number(values.anoVencimento)
+            }
+          }
+        },
+        products: [
+          {
+            id: 1,
+            price: 100
+          }
+        ]
+      })
     }
   })
   const getErroMassage = (campo: string, message?: string) => {
@@ -141,7 +177,7 @@ const Checkout = ({ checkoutStart = false, priceTotal = 0 }: Props) => {
           <Field>
             <label htmlFor="cep">CEP</label>
             <input
-              type="text"
+              type="number"
               required
               id="cep"
               name="cep"
@@ -154,7 +190,7 @@ const Checkout = ({ checkoutStart = false, priceTotal = 0 }: Props) => {
           <Field>
             <label htmlFor="numero">Número</label>
             <input
-              type="text"
+              type="number"
               required
               id="numero"
               name="numero"
@@ -206,7 +242,7 @@ const Checkout = ({ checkoutStart = false, priceTotal = 0 }: Props) => {
           <Field>
             <label htmlFor="cardNumber">Número do cartão</label>
             <input
-              type="text"
+              type="number"
               required
               id="cardNumber"
               name="cardNumber"
@@ -221,7 +257,7 @@ const Checkout = ({ checkoutStart = false, priceTotal = 0 }: Props) => {
           <Field>
             <label htmlFor="cvv">CVV</label>
             <input
-              type="text"
+              type="number"
               required
               id="cvv"
               name="cvv"
@@ -236,7 +272,7 @@ const Checkout = ({ checkoutStart = false, priceTotal = 0 }: Props) => {
           <Field>
             <label htmlFor="mesVencimento">Mês de vencimento</label>
             <input
-              type="text"
+              type="number"
               required
               id="mesVencimento"
               name="mesVencimento"
@@ -251,7 +287,7 @@ const Checkout = ({ checkoutStart = false, priceTotal = 0 }: Props) => {
           <Field>
             <label htmlFor="anoVencimento">Ano de vencimento</label>
             <input
-              type="text"
+              type="number"
               required
               id="anoVencimento"
               name="anoVencimento"
@@ -273,8 +309,8 @@ const Checkout = ({ checkoutStart = false, priceTotal = 0 }: Props) => {
           </AddCartButton>
         </div>
       </PaymentContainer>
-      <ConfirmedContainer className={isConfirmed ? 'show' : ''}>
-        <h2>Pedido realizado - ????</h2>
+      <ConfirmedContainer className={isConfirmed && isSuccess ? 'show' : ''}>
+        <h2>Pedido realizado - {data?.orderId} </h2>
         <p>
           Estamos felizes em informar que seu pedido já está em processo de
           preparação e, em breve, será entregue no endereço fornecido.

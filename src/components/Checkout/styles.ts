@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { AddCartButton } from '../Cart/style'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const DeliverContainer = styled.div`
   display: none;
@@ -75,6 +75,18 @@ export const PaymentContainer = styled.div`
     }
     #mesVencimento {
       width: 155px;
+    }
+  }
+  @media (max-width: ${breakpoints.tablet}) {
+    .fieldContainer {
+      display: block;
+      column-gap: 34px;
+      #cardNumber {
+        width: 100%;
+      }
+      #mesVencimento {
+        width: 100%;
+      }
     }
   }
 `
