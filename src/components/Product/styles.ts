@@ -3,30 +3,42 @@ import { cores } from '../../styles'
 import { TagContainer } from '../Tag/styles'
 
 export const CardContainer = styled.div`
-  background-color: ${cores.cinza};
-  border-radius: 8px;
+  border: 1px solid ${cores.rosa};
   padding: 8px;
   position: relative;
+  margin-top: 80px;
 
+  img {
+    width: 100%;
+  }
   ${TagContainer} {
     margin-right: 8px;
   }
+
+  div {
+    display: flex;
+    justify-content: space-between;
+  }
 `
 export const Titulo = styled.h3`
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
-  display: block;
-  margin-top: 16px;
-  margin-bottom: 8px;
+  margin-top: 8px;
+  margin-bottom: 16px;
 `
 export const Paragrafo = styled.p`
   font-size: 14px;
   line-height: 22px;
   display: block;
-  margin-top: 16px;
+  margin: 16px 8px;
 `
 export const Infos = styled.div`
   position: absolute;
   top: 16px;
   right: 16px;
+`
+export const Estrela = styled.img`
+  height: 21px;
+  width: 21px;
+  margin: 8px;
 `

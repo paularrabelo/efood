@@ -1,37 +1,27 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
 
 export const HeaderBar = styled.header`
-  background-color: ${cores.cinza};
-  padding: 24px;
-  border-radius: 16px;
-  margin-bottom: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  a {
-    color: ${cores.branco};
-    font-weight: bold;
-  }
+  height: 384px;
 
   div {
+    height: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: space-between;
   }
-`
-export const Links = styled.ul`
-  display: flex;
-  margin-left: 40px;
-`
-
-export const LinkItem = styled.li`
-  margin-right: 16px;
-`
-export const LinkCart = styled.a`
-  display: flex;
 
   img {
-    margin-left: 16px;
+    margin-top: 64px;
   }
+`
+
+export const Titulo = styled.h2`
+  font-size: 36px;
+  margin-bottom: 40px;
+  width: 539px;
+  text-align: center;
 `

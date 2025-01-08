@@ -1,23 +1,17 @@
+import Button from '../Button'
 import Tag from '../Tag'
-import { CardContainer, Infos, Paragrafo, Titulo } from './styles'
+import { CardContainer, Estrela, Infos, Paragrafo, Titulo } from './styles'
+import estrela from '../../assets/images/estrela.png'
 
 type Props = {
   title: string
-  category: string
-  system: string
+  nota: string
   description: string
   infos: string[]
   image: string
 }
 
-const Product = ({
-  title,
-  category,
-  system,
-  description,
-  infos,
-  image
-}: Props) => (
+const Product = ({ title, nota, description, infos, image }: Props) => (
   <CardContainer>
     <img src={image} alt={title} />
     <Infos>
@@ -25,10 +19,21 @@ const Product = ({
         <Tag key={info}>{info}</Tag>
       ))}
     </Infos>
-    <Titulo>{title}</Titulo>
-    <Tag>{category}</Tag>
-    <Tag>{system}</Tag>
+    <div>
+      <Titulo>{title}</Titulo>
+      <div>
+        <Titulo>{nota}</Titulo>
+        <Estrela src={estrela} alt="" />
+      </div>
+    </div>
     <Paragrafo>{description}</Paragrafo>
+    <Button
+      type="link"
+      to="/produto"
+      title="Clique aqui para aproveitar esta oferta"
+    >
+      Saiba mais
+    </Button>
   </CardContainer>
 )
 

@@ -1,31 +1,16 @@
 import { Link } from 'react-router-dom'
-import { HeaderBar, LinkCart, LinkItem, Links } from './styles'
-import logo from '../../assets/images/logo.svg'
-import carrinho from '../../assets/images/carrinho.svg'
+import { HeaderBar, Titulo } from './styles'
+import logo from '../../assets/images/logo.png'
+import bannerImg from '../../assets/images/Vector.png'
+
 const Header = () => (
-  <HeaderBar>
-    <div>
+  <HeaderBar style={{ backgroundImage: `url(${bannerImg})` }}>
+    <div className="container">
       <Link to="/">
-        <img src={logo} alt="Logo EPLAY" />
+        <img src={logo} alt="Logo EFOOD" />
       </Link>
-      <nav>
-        <Links>
-          <LinkItem>
-            <Link to="/categories">Categorias</Link>
-          </LinkItem>
-          <LinkItem>
-            <a href="#">Novidades</a>
-          </LinkItem>
-          <LinkItem>
-            <a href="#">Promocoes</a>
-          </LinkItem>
-        </Links>
-      </nav>
+      <Titulo>Viva experiências gastronômicas no conforto da sua casa</Titulo>
     </div>
-    <LinkCart href="#">
-      0 - produto(s)
-      <img src={carrinho} alt="Icone carrinho" />
-    </LinkCart>
   </HeaderBar>
 )
 
