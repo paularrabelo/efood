@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { cores } from '../../styles'
 
 export const Container = styled.footer`
-  background-color: ${cores.cinza};
+  background-color: ${cores.fundo};
   padding: 32px 0;
   font-size: 14px;
 `
@@ -17,7 +17,7 @@ export const Links = styled.ul`
 `
 
 export const Link = styled.a`
-  color: ${cores.cinzaClaro};
+  color: ${cores.fundoClaro};
   margin-right: 8px;
 `
 export const FooterSection = styled.div`

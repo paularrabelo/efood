@@ -4,8 +4,8 @@ export const cores = {
   branco: '#FFEBD9',
   preto: '#111',
   verde: '#10AC84',
-  cinza: '#333',
-  cinzaClaro: 'a3a3a3',
+  fundo: '#FFF8F2',
+  fundoClaro: '#FFFFFF',
   rosa: ' #E66767'
 }
 
@@ -20,6 +20,7 @@ export const GlobalCss = createGlobalStyle`
   }
 
   body {
+    background-color: ${cores.fundo};
     color: ${cores.rosa};
   }
 

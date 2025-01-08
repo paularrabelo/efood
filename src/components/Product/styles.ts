@@ -4,9 +4,9 @@ import { TagContainer } from '../Tag/styles'
 
 export const CardContainer = styled.div`
   border: 1px solid ${cores.rosa};
-  padding: 8px;
   position: relative;
   margin-top: 80px;
+  background-color: ${cores.fundoClaro};
 
   img {
     width: 100%;
@@ -14,10 +14,15 @@ export const CardContainer = styled.div`
   ${TagContainer} {
     margin-right: 8px;
   }
+`
+export const TituloContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
 
   div {
     display: flex;
-    justify-content: space-between;
   }
 `
 export const Titulo = styled.h3`

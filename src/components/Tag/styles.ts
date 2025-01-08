@@ -3,7 +3,7 @@ import { cores } from '../../styles'
 import { Props } from '.'
 
 export const TagContainer = styled.div<Props>`
-  background-color: ${cores.verde};
+  background-color: ${cores.rosa};
   color: ${cores.branco};
   font-size: 12px;
   font-weight: bold;

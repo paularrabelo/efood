@@ -12,7 +12,7 @@ const promocoes: Game[] = [
     description:
       'Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida.Experimente o Japão sem sair do lar com nosso delivery!',
     title: 'Diablo',
-    infos: ['R$ 250,00', '10%'],
+    infos: ['Destaque da Semana', 'Japonesa'],
     image: resident
   },
   {
@@ -21,7 +21,7 @@ const promocoes: Game[] = [
     description:
       'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
     title: 'Diablo',
-    infos: ['R$ 290,00', '5%'],
+    infos: ['Italiana'],
     image: diablo
   },
   {
@@ -30,7 +30,7 @@ const promocoes: Game[] = [
     description:
       'Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida.Experimente o Japão sem sair do lar com nosso delivery!',
     title: 'Zelda',
-    infos: ['R$ 250,00', '10%'],
+    infos: ['Japonesa'],
     image: zelda
   },
   {
@@ -39,7 +39,7 @@ const promocoes: Game[] = [
     description:
       'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
     title: 'Star Wars',
-    infos: ['R$ 250,00', '10%'],
+    infos: ['Italiana'],
     image: starWars
   },
   {
@@ -48,7 +48,7 @@ const promocoes: Game[] = [
     description:
       'Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida.Experimente o Japão sem sair do lar com nosso delivery!',
     title: 'Diablo',
-    infos: ['28/01'],
+    infos: ['Japonesa'],
     image: resident
   },
   {
@@ -57,7 +57,7 @@ const promocoes: Game[] = [
     description:
       'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
     title: 'Diablo',
-    infos: ['11/02'],
+    infos: ['Italiana'],
     image: diablo
   }
 ]
