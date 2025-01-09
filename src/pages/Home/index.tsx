@@ -1,9 +1,7 @@
 import RestaurantsList from '../../components/RestaurantsList'
 import Restaurante from '../../models/Restaurante'
-import resident from '../../assets/images/macarrao.png'
-import diablo from '../../assets/images/macarrao.png'
-import zelda from '../../assets/images/macarrao.png'
-import starWars from '../../assets/images/macarrao.png'
+import macarrao from '../../assets/images/macarrao.png'
+import japonesa from '../../assets/images/sushi.png'
 import Header from '../../components/Header'
 
 const restaurantes: Restaurante[] = [
@@ -12,54 +10,54 @@ const restaurantes: Restaurante[] = [
     nota: '4.9',
     description:
       'Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida.Experimente o Japão sem sair do lar com nosso delivery!',
-    title: 'Diablo',
+    title: 'Hioki Sush',
     infos: ['Destaque da Semana', 'Japonesa'],
-    image: resident
+    image: japonesa
   },
   {
     id: 2,
     nota: '4.6',
     description:
       'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
-    title: 'Diablo',
+    title: 'La Dolce Vita Trattoria',
     infos: ['Italiana'],
-    image: diablo
+    image: macarrao
   },
   {
     id: 3,
     nota: '4.7',
     description:
       'Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida.Experimente o Japão sem sair do lar com nosso delivery!',
-    title: 'Zelda',
+    title: 'La Dolce Vita Trattoria',
     infos: ['Japonesa'],
-    image: zelda
+    image: japonesa
   },
   {
     id: 4,
     nota: '4.8',
     description:
       'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
-    title: 'Star Wars',
+    title: 'La Dolce Vita Trattoria',
     infos: ['Italiana'],
-    image: starWars
+    image: macarrao
   },
   {
     id: 5,
     nota: '4.6',
     description:
       'Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida.Experimente o Japão sem sair do lar com nosso delivery!',
-    title: 'Diablo',
+    title: 'La Dolce Vita Trattoria',
     infos: ['Japonesa'],
-    image: resident
+    image: japonesa
   },
   {
     id: 6,
     nota: '4.7',
     description:
       'A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!',
-    title: 'Diablo',
+    title: 'La Dolce Vita Trattoria',
     infos: ['Italiana'],
-    image: diablo
+    image: macarrao
   }
 ]
 
