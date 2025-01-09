@@ -1,51 +1,37 @@
-import { Container, FooterSection, Link, Links, SectionTitle } from './styles'
-
-const currentYear = new Date().getFullYear()
+import { Container, FooterSection, Link, Links } from './styles'
+import logo from '../../assets/images/logo.png'
+import instagram from '../../assets/images/instagram.png'
+import facebook from '../../assets/images/facebook.png'
+import twitter from '../../assets/images/twitter.png'
 
 const Footer = () => (
   <Container>
     <div className="container">
       <FooterSection>
-        <SectionTitle>Categorias</SectionTitle>
+        <img src={logo} alt="Logo efood" />
         <Links>
           <li>
-            <Link>RPG</Link>
+            <Link>
+              <img src={instagram} alt="Icone instagram" />
+            </Link>
           </li>
           <li>
-            <Link>Acao</Link>
+            <Link>
+              <img src={facebook} alt="Icone facebook" />
+            </Link>
           </li>
           <li>
-            <Link>Aventura</Link>
-          </li>
-          <li>
-            <Link>Esportes</Link>
-          </li>
-          <li>
-            <Link>Simulacao</Link>
-          </li>
-          <li>
-            <Link>Estrategia</Link>
-          </li>
-          <li>
-            <Link>FPS</Link>
+            <Link>
+              <img src={twitter} alt="Icone twitter" />
+            </Link>
           </li>
         </Links>
+        <p>
+          A efood é uma plataforma para divulgação de estabelecimentos, a
+          responsabilidade pela entrega, qualidade dos produtos é toda do
+          estabelecimento contratado.
+        </p>
       </FooterSection>
-      <FooterSection>
-        <SectionTitle>Acesso Rapido</SectionTitle>
-        <Links>
-          <li>
-            <Link>Novidades</Link>
-          </li>
-          <li>
-            <Link>Promocoes</Link>
-          </li>
-          <li>
-            <Link>Em breve</Link>
-          </li>
-        </Links>
-      </FooterSection>
-      <p>{currentYear} - &copy; E-PLAY Todos os direitos reservados.</p>
     </div>
   </Container>
 )
