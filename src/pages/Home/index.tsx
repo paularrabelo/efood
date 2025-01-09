@@ -1,11 +1,12 @@
-import ProductsList from '../../components/ProductsList'
-import Game from '../../models/Game'
+import RestaurantsList from '../../components/RestaurantsList'
+import Restaurante from '../../models/Restaurante'
 import resident from '../../assets/images/macarrao.png'
 import diablo from '../../assets/images/macarrao.png'
 import zelda from '../../assets/images/macarrao.png'
 import starWars from '../../assets/images/macarrao.png'
+import Header from '../../components/Header'
 
-const promocoes: Game[] = [
+const restaurantes: Restaurante[] = [
   {
     id: 1,
     nota: '4.9',
@@ -64,7 +65,8 @@ const promocoes: Game[] = [
 
 const Home = () => (
   <>
-    <ProductsList games={promocoes} />
+    <Header />
+    <RestaurantsList restaurantes={restaurantes} />
   </>
 )
 

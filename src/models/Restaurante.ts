@@ -1,4 +1,4 @@
-class Game {
+class Restaurante {
   nota: string
   description: string
   image: string
@@ -23,4 +23,4 @@ class Game {
   }
 }
 
-export default Game
+export default Restaurante

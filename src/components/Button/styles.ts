@@ -3,14 +3,13 @@ import { Link } from 'react-router-dom'
 import { cores } from '../../styles'
 import { Props } from '../Tag'
 
-export const ButtonContainer = styled.button<Props>`
-  background-color: ${cores.rosa};
-  color: ${cores.branco};
-  border: 2px solid ${cores.rosa};
-  font-size: 16px;
+export const ButtonProduct = styled.button<Props>`
+  background-color: ${cores.branco};
+  color: ${cores.rosa};
+  border: none;
+  font-size: 14px;
   font-weight: bold;
-  padding: 8px 16px;
-  border-radius: 8px;
+  padding: 4px;
 `
 export const ButtonLink = styled(Link)`
   background-color: ${cores.rosa};

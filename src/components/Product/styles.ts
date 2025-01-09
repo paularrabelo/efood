@@ -1,49 +1,33 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
-import { TagContainer } from '../Tag/styles'
+import { ButtonProduct } from '../Button/styles'
 
 export const CardContainer = styled.div`
   border: 1px solid ${cores.rosa};
   position: relative;
   margin-top: 80px;
-  background-color: ${cores.fundoClaro};
+  background-color: ${cores.rosa};
+  color: ${cores.branco};
+  padding: 8px;
 
   img {
     width: 100%;
   }
-  ${TagContainer} {
-    margin-right: 8px;
+  ${ButtonProduct} {
+    width: 100%;
+    cursor: pointer;
   }
 `
-export const TituloContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 8px;
 
-  div {
-    display: flex;
-  }
-`
 export const Titulo = styled.h3`
-  font-size: 18px;
-  font-weight: bold;
-  margin-top: 8px;
-  margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: 900;
+  margin: 8px 0;
 `
 export const Paragrafo = styled.p`
   font-size: 14px;
   line-height: 22px;
   display: block;
-  margin: 16px 8px;
-`
-export const Infos = styled.div`
-  position: absolute;
-  top: 16px;
-  right: 16px;
-`
-export const Estrela = styled.img`
-  height: 21px;
-  width: 21px;
-  margin: 8px;
+  height: 88px;
+  margin-bottom: 8px;
 `
