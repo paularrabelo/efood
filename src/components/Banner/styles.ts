@@ -3,9 +3,6 @@ import styled from 'styled-components'
 import { breakpoints, cores } from '../../styles'
 
 export const Container = styled.div`
-  @media (max-width: ${breakpoints.mobile}) {
-    height: 100%;
-  }
   height: 280px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -16,8 +13,10 @@ export const Container = styled.div`
     margin: 0 auto;
     z-index: 1;
 
-    @media (max-width: ${breakpoints.desktop}) {
+    @media (max-width: ${breakpoints.tablet}) {
+      display: block;
       padding: 0 10px;
+      height: 100%;
     }
   }
   &::after {
