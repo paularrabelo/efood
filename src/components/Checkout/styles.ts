@@ -78,6 +78,7 @@ export const PaymentContainer = styled.div`
     }
   }
   @media (max-width: ${breakpoints.tablet}) {
+    width: 100%;
     .fieldContainer {
       display: block;
       column-gap: 34px;
