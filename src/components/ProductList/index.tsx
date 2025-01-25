@@ -41,7 +41,7 @@ const FoodList = ({ restaurant, pedido }: Props) => {
 
   return (
     <>
-      <S.Container>
+      <S.Container className="container">
         <S.List>
           {restaurant.cardapio.map((food) => (
             <li
