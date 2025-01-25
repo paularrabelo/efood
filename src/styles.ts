@@ -4,8 +4,8 @@ export const cores = {
   vermelho: '#E66767',
   rosa: '#FFEBD9',
   branco: '#FFFFFF',
-  dourado: '#FFB930',
-  palhaClara: '#FFF8F2'
+  amarelo: '#FFB930',
+  fundoClaro: '#FFF8F2'
 }
 
 export const breakpoints = {
@@ -24,7 +24,7 @@ export const GlobalCSS = createGlobalStyle`
 }
 
 body{
-  background-color: ${cores.palhaClara};
+  background-color: ${cores.fundoClaro};
   color: ${cores.vermelho};
 }
 `

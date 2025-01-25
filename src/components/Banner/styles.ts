@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { breakpoints, cores } from '../../styles'
 
-export const ApresentacaoContainer = styled.div`
+export const Container = styled.div`
   @media (max-width: ${breakpoints.mobile}) {
     height: 100%;
   }
@@ -30,13 +30,13 @@ export const ApresentacaoContainer = styled.div`
     content: '';
   }
 `
-export const ApresentacaoCategoria = styled.p`
+export const Tipo = styled.p`
   color: ${cores.branco};
   font-size: 32px;
   font-weight: 100;
   padding-top: 25px;
 `
-export const ApresentacaoPrato = styled.p`
+export const Titulo = styled.p`
   color: ${cores.branco};
   font-size: 32px;
   font-weight: 900;

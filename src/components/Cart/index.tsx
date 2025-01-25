@@ -1,19 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux'
-import {
-  Overlay,
-  CartContainer,
-  AddCartButton,
-  Sidebar,
-  ItemCart,
-  ImageItem,
-  InfosItem,
-  DeleteItemButton,
-  InfosCart,
-  CartStage
-} from './style'
+import * as S from './style'
 import { RootReducer } from '../../store'
 import { close, removeItem, startCheckout } from '../../store/reducers/cart'
-import { priceFormat } from '../FoodList'
+import { priceFormat } from '../ProductList'
 import Checkout from '../Checkout'
 
 const Cart = () => {
@@ -28,7 +17,7 @@ const Cart = () => {
     if (getTotalPrice() > 0) {
       dispatch(startCheckout())
     } else {
-      alert('Não há itens no carrinho')
+      alert('Adicione pelo menos um item no carrinho')
     }
   }
 
@@ -41,33 +30,45 @@ const Cart = () => {
     dispatch(removeItem(id))
   }
   return (
-    <CartContainer className={isOpen ? 'is-open' : ''}>
-      <Overlay onClick={openCart} />
-      <Sidebar>
-        <CartStage className={!isCart ? 'is-checkout' : ''}>
-          <ul>
-            {pedido.map((p) => (
-              <ItemCart key={p.id}>
-                <ImageItem src={p.foto} alt="" />
-                <InfosItem>
-                  <h3>{p.nome}</h3>
-                  <span>{priceFormat(p.preco)}</span>
-                </InfosItem>
-                <DeleteItemButton type="button" onClick={() => remItem(p.id)} />
-              </ItemCart>
-            ))}
-          </ul>
-          <InfosCart>
-            <p>Valor total</p>
-            <span>{priceFormat(getTotalPrice())}</span>
-          </InfosCart>
-          <AddCartButton onClick={activeCheckout}>
-            Continuar com a entrega
-          </AddCartButton>
-        </CartStage>
+    <S.CartContainer className={isOpen ? 'is-open' : ''}>
+      <S.Overlay onClick={openCart} />
+      <S.Sidebar>
+        <S.CartStage className={!isCart ? 'is-checkout' : ''}>
+          {pedido.length > 0 ? (
+            <>
+              <ul>
+                {pedido.map((item) => (
+                  <S.ItemCart key={item.id}>
+                    <S.ImageItem src={item.foto} alt="" />
+                    <S.InfosItem>
+                      <h3>{item.nome}</h3>
+                      <span>{priceFormat(item.preco)}</span>
+                    </S.InfosItem>
+                    <S.DeleteItemButton
+                      type="button"
+                      onClick={() => remItem(item.id)}
+                    />
+                  </S.ItemCart>
+                ))}
+              </ul>
+              <S.InfosCart>
+                <p>Valor total</p>
+                <span>{priceFormat(getTotalPrice())}</span>
+              </S.InfosCart>
+              <S.AddCartButton onClick={activeCheckout}>
+                Continuar com a entrega
+              </S.AddCartButton>
+            </>
+          ) : (
+            <p className="empty-text">
+              O carrinho está vazio, adicione pelo menos um produto para
+              continuar com a compra
+            </p>
+          )}
+        </S.CartStage>
         <Checkout checkoutStart={isAddress} priceTotal={getTotalPrice()} />
-      </Sidebar>
-    </CartContainer>
+      </S.Sidebar>
+    </S.CartContainer>
   )
 }
 

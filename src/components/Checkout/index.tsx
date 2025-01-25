@@ -1,11 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { AddCartButton, SubmitCartButton } from '../Cart/style'
-import {
-  DeliverContainer,
-  Field,
-  PaymentContainer,
-  ConfirmedContainer
-} from './styles'
+import { IMaskInput } from 'react-imask'
+import { useFormik } from 'formik'
+import * as Yup from 'yup'
+
 import {
   backtoCart,
   payment,
@@ -14,11 +11,11 @@ import {
   closeAndFinish
 } from '../../store/reducers/cart'
 import { RootReducer } from '../../store'
-import { priceFormat } from '../FoodList'
-import { useFormik } from 'formik'
-import * as Yup from 'yup'
+import { priceFormat } from '../ProductList'
 import { usePurchaseMutation } from '../../services/api'
-import { IMaskInput } from 'react-imask'
+
+import { AddCartButton, SubmitCartButton } from '../Cart/style'
+import * as S from './styles'
 
 type Props = {
   checkoutStart?: boolean
@@ -149,9 +146,9 @@ const Checkout = ({ checkoutStart = false, priceTotal = 0 }: Props) => {
   }
   return (
     <form onSubmit={form.handleSubmit}>
-      <DeliverContainer className={checkoutStart ? 'show' : ''}>
+      <S.DeliverContainer className={checkoutStart ? 'show' : ''}>
         <h2>Entrega</h2>
-        <Field>
+        <S.Field>
           <label htmlFor="remetente">Quem irá receber</label>
           <input
             type="text"
@@ -163,8 +160,8 @@ const Checkout = ({ checkoutStart = false, priceTotal = 0 }: Props) => {
             value={form.values.remetente}
           />
           <small>{getErroMassage('remetente', form.errors.remetente)}</small>
-        </Field>
-        <Field>
+        </S.Field>
+        <S.Field>
           <label htmlFor="endereco">Endereço</label>
           <input
             type="text"
@@ -176,8 +173,8 @@ const Checkout = ({ checkoutStart = false, priceTotal = 0 }: Props) => {
             value={form.values.endereco}
           />
           <small>{getErroMassage('endereco', form.errors.endereco)}</small>
-        </Field>
-        <Field>
+        </S.Field>
+        <S.Field>
           <label htmlFor="cidade">Cidade</label>
           <input
             type="text"
@@ -189,9 +186,9 @@ const Checkout = ({ checkoutStart = false, priceTotal = 0 }: Props) => {
             value={form.values.cidade}
           />
           <small>{getErroMassage('cidade', form.errors.cidade)}</small>
-        </Field>
+        </S.Field>
         <div className="CEPNumber">
-          <Field>
+          <S.Field>
             <label htmlFor="cep">CEP</label>
             <IMaskInput
               mask="00.000-000"
@@ -204,8 +201,8 @@ const Checkout = ({ checkoutStart = false, priceTotal = 0 }: Props) => {
               value={form.values.cep}
             />
             <small>{getErroMassage('cep', form.errors.cep)}</small>
-          </Field>
-          <Field>
+          </S.Field>
+          <S.Field>
             <label htmlFor="numero">Número</label>
             <input
               type="number"
@@ -217,9 +214,9 @@ const Checkout = ({ checkoutStart = false, priceTotal = 0 }: Props) => {
               value={form.values.numero}
             />
             <small>{getErroMassage('numero', form.errors.numero)}</small>
-          </Field>
+          </S.Field>
         </div>
-        <Field>
+        <S.Field>
           <label htmlFor="complemento">Complemento (opcional)</label>
           <input
             type="text"
@@ -229,21 +226,18 @@ const Checkout = ({ checkoutStart = false, priceTotal = 0 }: Props) => {
             onBlur={form.handleBlur}
             value={form.values.complemento}
           />
-          {/* <small>
-            {getErroMassage('complemento', form.errors.complemento)}
-          </small> */}
-        </Field>
+        </S.Field>
         <div className="buttomContainer">
           <AddCartButton type="submit" onClick={activePayment}>
             Continuar com o pagamento
           </AddCartButton>
           <AddCartButton onClick={backCart}>Voltar ao carrinho</AddCartButton>
         </div>
-      </DeliverContainer>
-      <PaymentContainer className={isPayment ? 'show' : ''}>
+      </S.DeliverContainer>
+      <S.PaymentContainer className={isPayment ? 'show' : ''}>
         <p>Pagamento - Valor a pagar {priceFormat(priceTotal)}</p>
 
-        <Field>
+        <S.Field>
           <label htmlFor="cardName">Nome do cartão</label>
           <input
             type="text"
@@ -255,9 +249,9 @@ const Checkout = ({ checkoutStart = false, priceTotal = 0 }: Props) => {
             value={form.values.cardName}
           />
           <small>{getErroMassage('cardName', form.errors.cardName)}</small>
-        </Field>
+        </S.Field>
         <div className="fieldContainer">
-          <Field>
+          <S.Field>
             <label htmlFor="cardNumber">Número do cartão</label>
             <IMaskInput
               mask="0000.0000.0000.0000"
@@ -272,8 +266,8 @@ const Checkout = ({ checkoutStart = false, priceTotal = 0 }: Props) => {
             <small>
               {getErroMassage('cardNumber', form.errors.cardNumber)}
             </small>
-          </Field>
-          <Field>
+          </S.Field>
+          <S.Field>
             <label htmlFor="cvv">CVV</label>
             <IMaskInput
               mask="000"
@@ -286,10 +280,10 @@ const Checkout = ({ checkoutStart = false, priceTotal = 0 }: Props) => {
               value={form.values.cvv}
             />
             <small>{getErroMassage('cvv', form.errors.cvv)}</small>
-          </Field>
+          </S.Field>
         </div>
         <div className="fieldContainer">
-          <Field>
+          <S.Field>
             <label htmlFor="mesVencimento">Mês de vencimento</label>
             <IMaskInput
               mask="00"
@@ -304,8 +298,8 @@ const Checkout = ({ checkoutStart = false, priceTotal = 0 }: Props) => {
             <small>
               {getErroMassage('mesVencimento', form.errors.mesVencimento)}
             </small>
-          </Field>
-          <Field>
+          </S.Field>
+          <S.Field>
             <label htmlFor="anoVencimento">Ano de vencimento</label>
             <IMaskInput
               mask="00"
@@ -320,7 +314,7 @@ const Checkout = ({ checkoutStart = false, priceTotal = 0 }: Props) => {
             <small>
               {getErroMassage('anoVencimento', form.errors.anoVencimento)}
             </small>
-          </Field>
+          </S.Field>
         </div>
         <div className="buttomContainer">
           <SubmitCartButton type="submit" onClick={activeConfirmed}>
@@ -330,8 +324,8 @@ const Checkout = ({ checkoutStart = false, priceTotal = 0 }: Props) => {
             Voltar para a edição do endereço
           </AddCartButton>
         </div>
-      </PaymentContainer>
-      <ConfirmedContainer className={isConfirmed && isSuccess ? 'show' : ''}>
+      </S.PaymentContainer>
+      <S.ConfirmedContainer className={isConfirmed && isSuccess ? 'show' : ''}>
         <h2>Pedido realizado - {data?.orderId} </h2>
         <p>
           Estamos felizes em informar que seu pedido já está em processo de
@@ -357,7 +351,7 @@ const Checkout = ({ checkoutStart = false, priceTotal = 0 }: Props) => {
             Concluir
           </AddCartButton>
         </div>
-      </ConfirmedContainer>
+      </S.ConfirmedContainer>
     </form>
   )
 }

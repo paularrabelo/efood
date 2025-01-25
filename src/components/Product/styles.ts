@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 export const Card = styled.div`
   background-color: ${cores.vermelho};
-  color: ${cores.palhaClara};
+  color: ${cores.fundoClaro};
   max-width: 100%;
   width: 100%;
   display: flex;
