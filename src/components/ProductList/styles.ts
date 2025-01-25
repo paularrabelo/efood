@@ -39,7 +39,7 @@ export const Modal = styled.div`
   height: 100%;
   display: none;
   align-items: center;
-  justiry-content: center;
+  justify-content: center;
   z-index: 2;
 
   &.visible {
@@ -71,8 +71,8 @@ export const ModalContent = styled.div`
 `
 export const FoodImage = styled.img`
   object-fit: cover;
-  max-width: 280px;
-  max-height: 280px;
+  width: 280px;
+  height: 280px;
   margin: 32px 24px 32px 32px;
   object-fit: cover;
 
