@@ -7,6 +7,7 @@ export const HeaderStyle = styled.header`
 
   align-items: center;
   text-align: center;
+
   .container {
     padding: 39px 0;
     max-width: 1024px;
@@ -14,25 +15,21 @@ export const HeaderStyle = styled.header`
     justify-content: space-between;
     margin: 0 auto;
 
-    @media (max-width: ${breakpoints.iphone11}) {
-      display: inline-block;
-    }
-
     @media (max-width: ${breakpoints.mobile}) {
-      display: inline-block;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
     @media (max-width: ${breakpoints.desktop}) {
       padding: 39px 10px;
     }
   }
 `
-export const Branding = styled.img`
-  max-width: 125px;
+export const Branding = styled.a`
+  max-width: 126px;
   width: 100%;
-  height: 57.5px;
-  @media (max-width: ${breakpoints.iphone11}) {
-    margin: 15px;
-  }
+  height: 60px;
   @media (max-width: ${breakpoints.mobile}) {
     margin: 15px;
   }
@@ -43,8 +40,8 @@ export const LinkRestaurantes = styled.a`
   text-decoration: none;
   color: ${cores.vermelho};
   margin-top: 39px;
-  @media (max-width: ${breakpoints.iphone11}) {
-    margin-top: 0;
+  img {
+    margin-right: 8px;
   }
   @media (max-width: ${breakpoints.mobile}) {
     margin-top: 0;
@@ -56,9 +53,6 @@ export const TextCart = styled.p`
   font-weight: bold;
   margin-top: 39px;
   cursor: pointer;
-  @media (max-width: ${breakpoints.iphone11}) {
-    margin-top: 0;
-  }
 
   @media (max-width: ${breakpoints.mobile}) {
     margin-top: 0;
